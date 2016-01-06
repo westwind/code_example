@@ -1,7 +1,9 @@
 package main
 
 import (
+    "fmt"
     "time"
+    "runtime"
 )
 import l4g "code.google.com/p/log4go"
 
@@ -20,5 +22,11 @@ func main() {
     flw.SetRotateDaily(false)
     log.AddFilter("file", l4g.FINE, flw)
     log.Info("log info")
+
+    ngo := runtime.NumGoroutine()
+    fmt.Println(ngo)
     time.Sleep(1*time.Second)
+    fmt.Println(ngo)
+    time.Sleep(1*time.Second)
+    fmt.Println(ngo)
 }
