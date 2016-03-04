@@ -21,6 +21,14 @@ int main(int argc, char *argv[]) {
     char *zErrMsg = 0;
 
     result = sqlite3_open(filename, &db);
+    printf("open sql db: 1\n");
+    if (result != 0) {
+        printf("can't open database: %s\n", filename);
+        return;
+    }
+
+    result = sqlite3_open(filename, &db);
+    printf("open sql db: 2\n");
     if (result != 0) {
         printf("can't open database: %s\n", filename);
         return;
